@@ -28,10 +28,26 @@ public class MainActivity extends AppCompatActivity {
         thread2.start();
 
         Handler handler = new Handler(Looper.getMainLooper());
+
         handler.post(new Runnable() {
             @Override
             public void run() {
                 // обновить UI отсюда
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                tvMain3.setText("Handler 1");
+
+
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                tvMain3.setText("Handler 2");
             }
         });
     }
